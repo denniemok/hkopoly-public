@@ -15,7 +15,7 @@
 ## 📸 介面預覽
 
 <p align="center">
-  <img src="https://i.imgur.com/iKpsvV2.gif" width="97%" alt="Demo">
+  <img src="https://i.imgur.com/kiEIrX3.gif" width="97%">
 </p>
 
 <p align="center">
