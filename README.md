@@ -81,6 +81,10 @@
 
 ## 🗺️ 棋盤地圖
 
+地圖定義檔位於 [`maps/`](maps/) 資料夾，包含 `urban1.json`、`rural1.json` 及[地圖編輯指南](maps/EDIT_MAP_GUIDE.md)。
+
+**歡迎提交新地圖！** 如果你有澳門、台灣或其他本地化主題的棋盤構想，歡迎 fork 本 repo、在 `maps/` 新增 JSON 檔，並開啟 [Pull Request](https://github.com/denniemok/hkopoly-public/pulls) 分享你的設計。
+
 ### 市區 1
 
 <img align="right" src="https://i.imgur.com/ajYfhdV.png" width="48%">
@@ -122,7 +126,7 @@
 HKopoly 會持續更新，以下係暫定方向：
 
 - **🗺️ 新地圖**  
-  加入澳門、台灣等更多本地化主題棋盤。
+  加入澳門、台灣等更多本地化主題棋盤。歡迎社群透過 Pull Request 提交新地圖（詳見 [`maps/EDIT_MAP_GUIDE.md`](maps/EDIT_MAP_GUIDE.md)）。
 
 - **⚙️ 自訂規則**  
   讓房主調整初始資金、坐監回合、租金倍率等家規。
