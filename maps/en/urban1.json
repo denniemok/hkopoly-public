@@ -1,8 +1,7 @@
 {
   "id": "urban1",
-  "name": "市區 1",
+  "name": "Urban 1",
   "config": {
-    "STARTING_MONEY": 1500,
     "GO_SALARY": 200,
     "GO_LANDING_BONUS": 100,
     "JAIL_POSITION": 10,
@@ -13,24 +12,26 @@
       "utility"
     ],
     "PLAYER_COLORS": [
-      "#E63946",
-      "#457B9D",
-      "#2A9D8F",
-      "#E9C46A",
-      "#9B5DE5",
-      "#FF9800",
-      "#E91E63",
-      "#8BC34A",
-      "#795548",
-      "#546E7A"
+      "#C0DA5A",
+      "#FFC13F",
+      "#E88147",
+      "#BE4646",
+      "#5A99DA",
+      "#80E5F3",
+      "#0D8679",
+      "#6DDB59",
+      "#9A6E5E",
+      "#C63FA2",
+      "#FB7A9E",
+      "#7B57D3"
     ]
   },
   "board": [
     {
       "id": 0,
       "type": "go",
-      "subtitle": "經過 HK$200\n停留 HK$300",
-      "name": "起點"
+      "subtitle": "Pass Go HK$200\nLand HK$300",
+      "name": "Go"
     },
     {
       "id": 1,
@@ -44,13 +45,13 @@
         160,
         250
       ],
-      "name": "土瓜灣",
+      "name": "To Kwa Wan",
       "group": "kowloonCity"
     },
     {
       "id": 2,
       "type": "community",
-      "name": "社區基金"
+      "name": "Community Chest"
     },
     {
       "id": 3,
@@ -64,14 +65,14 @@
         320,
         450
       ],
-      "name": "紅磡",
+      "name": "Hung Hom",
       "group": "kowloonCity"
     },
     {
       "id": 4,
       "type": "tax",
       "amount": 150,
-      "name": "印花稅"
+      "name": "Stamp Duty"
     },
     {
       "id": 5,
@@ -83,7 +84,7 @@
         100,
         200
       ],
-      "name": "港島線",
+      "name": "Island Line",
       "group": "railroad"
     },
     {
@@ -98,13 +99,13 @@
         400,
         550
       ],
-      "name": "長沙灣",
+      "name": "Cheung Sha Wan",
       "group": "shamShuiPo"
     },
     {
       "id": 7,
       "type": "chance",
-      "name": "機會"
+      "name": "Chance"
     },
     {
       "id": 8,
@@ -118,7 +119,7 @@
         400,
         550
       ],
-      "name": "荔枝角",
+      "name": "Lai Chi Kok",
       "group": "shamShuiPo"
     },
     {
@@ -133,13 +134,14 @@
         450,
         600
       ],
-      "name": "深水埗",
+      "name": "Sham Shui Po",
       "group": "shamShuiPo"
     },
     {
       "id": 10,
       "type": "jail",
-      "name": "探監"
+      "name": "Visiting",
+      "cellLabel": "In jail"
     },
     {
       "id": 11,
@@ -153,14 +155,14 @@
         625,
         750
       ],
-      "name": "油麻地",
+      "name": "Yau Ma Tei",
       "group": "yauTsimMong"
     },
     {
       "id": 12,
       "type": "utility",
       "price": 150,
-      "name": "中電",
+      "name": "CLP Power",
       "group": "utility"
     },
     {
@@ -175,7 +177,7 @@
         625,
         750
       ],
-      "name": "旺角",
+      "name": "Mong Kok",
       "group": "yauTsimMong"
     },
     {
@@ -190,7 +192,7 @@
         700,
         900
       ],
-      "name": "尖沙咀",
+      "name": "Tsim Sha Tsui",
       "group": "yauTsimMong"
     },
     {
@@ -203,7 +205,7 @@
         100,
         200
       ],
-      "name": "荃灣線",
+      "name": "Tsuen Wan Line",
       "group": "railroad"
     },
     {
@@ -218,13 +220,13 @@
         750,
         950
       ],
-      "name": "牛頭角",
+      "name": "Ngau Tau Kok",
       "group": "kwunTong"
     },
     {
       "id": 17,
       "type": "community",
-      "name": "社區基金"
+      "name": "Community Chest"
     },
     {
       "id": 18,
@@ -238,7 +240,7 @@
         750,
         950
       ],
-      "name": "藍田",
+      "name": "Lam Tin",
       "group": "kwunTong"
     },
     {
@@ -253,13 +255,13 @@
         800,
         1000
       ],
-      "name": "觀塘",
+      "name": "Kwun Tong",
       "group": "kwunTong"
     },
     {
       "id": 20,
       "type": "parking",
-      "name": "免費泊車"
+      "name": "Free Parking"
     },
     {
       "id": 21,
@@ -273,13 +275,13 @@
         875,
         1050
       ],
-      "name": "鰂魚涌",
+      "name": "Quarry Bay",
       "group": "eastern"
     },
     {
       "id": 22,
       "type": "chance",
-      "name": "機會"
+      "name": "Chance"
     },
     {
       "id": 23,
@@ -293,7 +295,7 @@
         875,
         1050
       ],
-      "name": "北角",
+      "name": "North Point",
       "group": "eastern"
     },
     {
@@ -308,7 +310,7 @@
         925,
         1100
       ],
-      "name": "太古",
+      "name": "Tai Koo",
       "group": "eastern"
     },
     {
@@ -321,7 +323,7 @@
         100,
         200
       ],
-      "name": "東鐵線",
+      "name": "East Rail Line",
       "group": "railroad"
     },
     {
@@ -336,7 +338,7 @@
         975,
         1150
       ],
-      "name": "上環",
+      "name": "Sheung Wan",
       "group": "centralWestern"
     },
     {
@@ -351,14 +353,14 @@
         975,
         1150
       ],
-      "name": "金鐘",
+      "name": "Admiralty",
       "group": "centralWestern"
     },
     {
       "id": 28,
       "type": "utility",
       "price": 150,
-      "name": "港燈",
+      "name": "HK Electric",
       "group": "utility"
     },
     {
@@ -373,13 +375,13 @@
         1025,
         1200
       ],
-      "name": "中環",
+      "name": "Central",
       "group": "centralWestern"
     },
     {
       "id": 30,
       "type": "gotojail",
-      "name": "即時入獄"
+      "name": "Go To Jail"
     },
     {
       "id": 31,
@@ -393,7 +395,7 @@
         1100,
         1275
       ],
-      "name": "跑馬地",
+      "name": "Happy Valley",
       "group": "wanChai"
     },
     {
@@ -408,13 +410,13 @@
         1100,
         1275
       ],
-      "name": "灣仔",
+      "name": "Wan Chai",
       "group": "wanChai"
     },
     {
       "id": 33,
       "type": "community",
-      "name": "社區基金"
+      "name": "Community Chest"
     },
     {
       "id": 34,
@@ -428,7 +430,7 @@
         1150,
         1300
       ],
-      "name": "銅鑼灣",
+      "name": "Causeway Bay",
       "group": "wanChai"
     },
     {
@@ -441,13 +443,13 @@
         100,
         200
       ],
-      "name": "東涌線",
+      "name": "Tung Chung Line",
       "group": "railroad"
     },
     {
       "id": 36,
       "type": "chance",
-      "name": "機會"
+      "name": "Chance"
     },
     {
       "id": 37,
@@ -461,14 +463,14 @@
         1300,
         1500
       ],
-      "name": "赤柱",
+      "name": "Stanley",
       "group": "southern"
     },
     {
       "id": 38,
       "type": "tax",
       "amount": 75,
-      "name": "差餉"
+      "name": "Rates"
     },
     {
       "id": 39,
@@ -482,16 +484,16 @@
         1700,
         2000
       ],
-      "name": "淺水灣",
+      "name": "Repulse Bay",
       "group": "southern"
     }
   ],
   "groups": {
     "kowloonCity": {
       "id": "kowloonCity",
-      "name": "九龍城",
+      "name": "Kowloon City",
       "color": "#dc242c",
-      "icon": "/hd_icon_kc.webp",
+      "icon": "/icons/hk_18d_kc.webp",
       "spaceIds": [
         1,
         3
@@ -500,9 +502,9 @@
     },
     "shamShuiPo": {
       "id": "shamShuiPo",
-      "name": "深水埗",
+      "name": "Sham Shui Po",
       "color": "#04642c",
-      "icon": "/hd_icon_ssp.webp",
+      "icon": "/icons/hk_18d_ssp.webp",
       "spaceIds": [
         6,
         8,
@@ -512,9 +514,9 @@
     },
     "yauTsimMong": {
       "id": "yauTsimMong",
-      "name": "油尖旺",
+      "name": "Yau Tsim Mong",
       "color": "#e44404",
-      "icon": "/hd_icon_ytm.webp",
+      "icon": "/icons/hk_18d_ytm.webp",
       "spaceIds": [
         11,
         13,
@@ -524,9 +526,9 @@
     },
     "kwunTong": {
       "id": "kwunTong",
-      "name": "觀塘",
+      "name": "Kwun Tong",
       "color": "#149ce4",
-      "icon": "/hd_icon_kt.webp",
+      "icon": "/icons/hk_18d_kt.webp",
       "spaceIds": [
         16,
         18,
@@ -536,9 +538,9 @@
     },
     "eastern": {
       "id": "eastern",
-      "name": "東區",
+      "name": "Eastern",
       "color": "#e42424",
-      "icon": "/hd_icon_east.webp",
+      "icon": "/icons/hk_18d_east.webp",
       "spaceIds": [
         21,
         23,
@@ -548,9 +550,9 @@
     },
     "centralWestern": {
       "id": "centralWestern",
-      "name": "中西區",
+      "name": "Central & Western",
       "color": "#4c9c1c",
-      "icon": "/hd_icon_central.webp",
+      "icon": "/icons/hk_18d_central.webp",
       "spaceIds": [
         26,
         27,
@@ -560,9 +562,9 @@
     },
     "wanChai": {
       "id": "wanChai",
-      "name": "灣仔",
+      "name": "Wan Chai",
       "color": "#ec2c44",
-      "icon": "/hd_icon_wc.webp",
+      "icon": "/icons/hk_18d_wc.webp",
       "spaceIds": [
         31,
         32,
@@ -572,9 +574,9 @@
     },
     "southern": {
       "id": "southern",
-      "name": "南區",
+      "name": "Southern",
       "color": "#247cc4",
-      "icon": "/hd_icon_south.webp",
+      "icon": "/icons/hk_18d_south.webp",
       "spaceIds": [
         37,
         39
@@ -583,7 +585,7 @@
     },
     "railroad": {
       "id": "railroad",
-      "name": "鐵路",
+      "name": "Railroads",
       "color": "#2F4F4F",
       "icon": "tram-front",
       "spaceIds": [
@@ -595,7 +597,7 @@
     },
     "utility": {
       "id": "utility",
-      "name": "公用事業",
+      "name": "Utilities",
       "color": "#708090",
       "icon": "zap",
       "spaceIds": [

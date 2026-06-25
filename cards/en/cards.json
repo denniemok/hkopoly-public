@@ -1,0 +1,166 @@
+{
+  "spacePlaceholder": "{space}",
+  "chance": [
+    {
+      "text": "Advance to {space}. Collect HK$300.",
+      "action": "move",
+      "target": 0,
+      "collectGo": true
+    },
+    {
+      "text": "Advance to {space}. If you pass Go, collect HK$200.",
+      "action": "move",
+      "target": 13
+    },
+    {
+      "text": "Advance to {space}. If you pass Go, collect HK$200.",
+      "action": "move",
+      "target": 37
+    },
+    {
+      "text": "Advance to the nearest MTR line. Pay double rent.",
+      "action": "nearestRailroad",
+      "payDouble": true
+    },
+    {
+      "text": "Advance to the nearest MTR line.",
+      "action": "nearestRailroad"
+    },
+    {
+      "text": "Bank dividend HK$50.",
+      "action": "money",
+      "amount": 50
+    },
+    {
+      "text": "Get Out of Jail Free card.",
+      "action": "jailCard"
+    },
+    {
+      "text": "Go back 3 spaces.",
+      "action": "back",
+      "spaces": 3
+    },
+    {
+      "text": "Go to Jail. Do not pass Go.",
+      "action": "jail"
+    },
+    {
+      "text": "General repairs: HK$25 per house, HK$100 per hotel.",
+      "action": "repairs",
+      "house": 25,
+      "hotel": 100
+    },
+    {
+      "text": "Pay poor tax HK$15.",
+      "action": "money",
+      "amount": -15
+    },
+    {
+      "text": "Go to {space}. If you pass Go, collect HK$200.",
+      "action": "move",
+      "target": 18
+    },
+    {
+      "text": "You are elected chairman. Pay each player HK$50.",
+      "action": "payEach",
+      "amount": 50
+    },
+    {
+      "text": "Building loan matures. Collect HK$150.",
+      "action": "money",
+      "amount": 150
+    },
+    {
+      "text": "Speeding fine: pay HK$15.",
+      "action": "money",
+      "amount": -15
+    },
+    {
+      "text": "Cross-harbour tunnel opens. Collect HK$100.",
+      "action": "money",
+      "amount": 100
+    }
+  ],
+  "community": [
+    {
+      "text": "Advance to {space}. Collect HK$300.",
+      "action": "move",
+      "target": 0,
+      "collectGo": true
+    },
+    {
+      "text": "Bank error in your favour. Collect HK$200.",
+      "action": "money",
+      "amount": 200
+    },
+    {
+      "text": "Doctor's fees. Pay HK$50.",
+      "action": "money",
+      "amount": -50
+    },
+    {
+      "text": "From sale of stock. Collect HK$50.",
+      "action": "money",
+      "amount": 50
+    },
+    {
+      "text": "Get Out of Jail Free card.",
+      "action": "jailCard"
+    },
+    {
+      "text": "Go to Jail. Do not pass Go.",
+      "action": "jail"
+    },
+    {
+      "text": "HK Tourism Board holiday fund matures. Collect HK$100.",
+      "action": "money",
+      "amount": 100
+    },
+    {
+      "text": "Income tax refund. Collect HK$20.",
+      "action": "money",
+      "amount": 20
+    },
+    {
+      "text": "It is your birthday. Collect HK$10 from each player.",
+      "action": "collectEach",
+      "amount": 10
+    },
+    {
+      "text": "Life insurance matures. Collect HK$100.",
+      "action": "money",
+      "amount": 100
+    },
+    {
+      "text": "Pay hospital fees HK$100.",
+      "action": "money",
+      "amount": -100
+    },
+    {
+      "text": "Pay school fees HK$50.",
+      "action": "money",
+      "amount": -50
+    },
+    {
+      "text": "Receive consultancy fee HK$25.",
+      "action": "money",
+      "amount": 25
+    },
+    {
+      "text": "Street repairs: HK$40 per house, HK$115 per hotel.",
+      "action": "repairs",
+      "house": 40,
+      "hotel": 115
+    },
+    {
+      "text": "Beauty contest runner-up. Collect HK$10.",
+      "action": "money",
+      "amount": 10
+    },
+    {
+      "text": "Inherit estate HK$100.",
+      "action": "money",
+      "amount": 100
+    }
+  ]
+}

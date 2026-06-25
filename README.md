@@ -1,22 +1,29 @@
-# 🏙️ 香江大富翁 (HKopoly)
+# 🏙️ HKopoly
 
-### 🌟 真正嘅港版線上大富翁
+<h4>
+<p align="center">
+English | <a href="README.zh-HK.md">繁體中文</a>
+</p>
+</h4>
 
-**HKopoly** 係一個受 [Richup.io](https://richup.io) 啟發嘅香港主題網頁版多人棋盤遊戲。  
-由深水埗到南區、粉嶺到大嶼山，地名、港鐵線、公用事業都換成大家熟悉嘅香港元素。
+### Hong Kong Monopoly, online
 
-**零廣告、零課金、無 VIP 制度。**  
-純粹為咗同朋友、網友一齊開局，輕鬆玩返鋪港味大富翁。
+**HKopoly** is a Hong Kong–themed, browser-based multiplayer board game inspired by [Richup.io](https://richup.io).
 
-### 👉 **立即體驗**：[https://hkopoly.com](https://hkopoly.com)
+From Sham Shui Po to Fanling, the streets, MTR lines, and utilities are packed with familiar local references.
+
+**No Ads, No Paywalls, No VIP Tiers.**  
+Built entirely for seamless online game nights with friends.
+
+### 👉 **Play Now :** [https://hkopoly.com](https://hkopoly.com)
+### 👉 **立即體驗 :** [https://zh.hkopoly.com](https://zh.hkopoly.com)
+
+> [!TIP]
+> The English and Chinese sites run on separate servers and players are not shared.
 
 <br>
 
-## 📸 介面預覽
-
-<p align="center">
-  <img src="https://i.imgur.com/kiEIrX3.gif" width="97%">
-</p>
+## 📸 Screenshots
 
 <p align="center">
   <img src="https://i.imgur.com/Ag7WPqn.png" width="48%">
@@ -30,131 +37,125 @@
 
 <br>
 
-## ✨ 特色功能
+## ✨ Features
 
-- **💚 永遠免費**  
-  無廣告、無內購、無隱藏收費，單純為社群分享而設。
+- **💚 100% Free**  
+  No ads, paywalls, or hidden fees. Built purely for the community.
 
-- **🎮 即開即玩**  
-  免下載、免註冊，開網頁就可以入房開局。
+- **🎮 Instant Play**  
+  No downloads or sign-ups required. Open the link and jump straight into a room.
 
-- **🏘️ 香港主題地圖**  
-  目前提供「市區」及「新界及離島」兩款本地棋盤。
+- **🏘️ Localised Boards**  
+  Features two distinct maps: **Urban** and **New Territories & Islands**.
 
-- **📜 規則完整**  
-  支援 HK$1,500 起始資金、雙骰、坐監、機會、社區基金、起樓、抵押、拍賣等經典規則。
+- **📜 Complete Ruleset**  
+  Includes doubles, jail, Chance, Community Chest, mortgages, and auctions.
 
-- **⚡ 即時多人對戰**  
-  支援 2 至 10 人同場，棋盤、聊天室、戰況紀錄即時同步。
+- **⚡ Real-Time Multiplayer**  
+  Supports 2–10 players with synchronised live boards, chat, and game logs.
 
-- **🤝 自由交易**  
-  玩家可提出混合交易，例如「地皮＋現金＋出獄許可證」。如放棄買地，會即時觸發限時拍賣。
+- **🤝 Flexible Trading**  
+  Open trading for properties, cash, and Get Out of Jail cards. Declining a property purchase automatically triggers a timed auction.
 
-- **🤖 AI 託管**  
-  玩家離線或行開時可自動託管，避免長局因掛機而爛尾。
+- **🤖 AI Pilot**  
+  Auto-hosts take over when players drop offline so long sessions never stall.
 
-- **👀 觀戰與重連**  
-  朋友可隨時入場觀戰，斷線後亦可快速重新加入遊戲。
+- **👀 Spectate & Rejoin**  
+  Friends can watch live, and disconnected players can jump back into their seats instantly.
 
 <br>
 
-## 🧩 快速開始
+## 🧩 Quick start
 
-無需安裝，三步開局：
+Play instantly in three simple steps:
 
-1. **加入或建立遊戲**  
-   選擇「加入遊戲」或「建立遊戲」。
+1. **Create or Join a Room**  
+   Select **Join Game** or **Create Game** on the homepage.
 
-2. **輸入玩家名稱**  
-   用你想顯示嘅名稱入場。
+2. **Set Your Name**  
+   Pick a display nickname for the room.
 
-3. **開始遊戲**  
-   房主選好地圖後即可開波。輪到你時：  
-   **擲骰 → 買地 / 交租 / 交易 → 完結回合**
-
-最後仍未破產嘅玩家就係贏家！
+3. **Roll & Rule**  
+   The host picks a map and starts the match. On your turn: **Roll → Buy / Pay Rent / Trade → End Turn**
 
 > [!TIP]
-> 如果房間內所有真人玩家都離開，伺服器會喺 5 分鐘後自動關閉該房間。
+> To save server resources, empty rooms automatically close after 5 minutes of inactivity.
 
 <br>
 
-## 🗺️ 棋盤地圖
+## 🗺️ Board maps
 
-地圖定義檔位於 [`maps/`](maps/) 資料夾，包含 `urban1.json`、`rural1.json` 及[地圖編輯指南](maps/EDIT_MAP_GUIDE.md)。
+Map definitions live under [`maps/`](maps/) by locale (`en/`, `zh-HK/`). See the [Map Editing Guide](maps/EDIT_MAP_GUIDE.md) and [Card Editing Guide](cards/EDIT_CARD_GUIDE.md).
 
-**歡迎提交新地圖！** 如果你有澳門、台灣或其他本地化主題的棋盤構想，歡迎 fork 本 repo、在 `maps/` 新增 JSON 檔，並開啟 [Pull Request](https://github.com/denniemok/hkopoly-public/pulls) 分享你的設計。
+**Contributions are highly welcome!** To add a map, fork this repo, add JSON files under `maps/en/` and `maps/zh-HK/`, and open a [Pull Request](https://github.com/denniemok/hkopoly-public/pulls).
 
-### 市區 1
+### Urban 1
 
 <img align="right" src="https://i.imgur.com/ajYfhdV.png" width="48%">
 
-| 地產組 | 地區 |
-|--------|------|
-| 九龍城 | 土瓜灣、紅磡 |
-| 深水埗 | 長沙灣、荔枝角、深水埗 |
-| 油尖旺 | 油麻地、旺角、尖沙咀 |
-| 觀塘 | 牛頭角、藍田、觀塘 |
-| 東區 | 鰂魚涌、北角、太古 |
-| 中西區 | 上環、金鐘、中環 |
-| 灣仔 | 跑馬地、灣仔、銅鑼灣 |
-| 南區 | 赤柱、淺水灣 |
-| 鐵路 | 港島線、荃灣線、東鐵線、東涌線 |
-| 公共事業 | 中電、港燈 |
+| District / Type | Neighborhoods |
+|--------------|-------|
+| Kowloon City | To Kwa Wan, Hung Hom |
+| Sham Shui Po | Cheung Sha Wan, Lai Chi Kok, Sham Shui Po |
+| Yau Tsim Mong | Yau Ma Tei, Mong Kok, Tsim Sha Tsui |
+| Kwun Tong | Ngau Tau Kok, Lam Tin, Kwun Tong |
+| Eastern | Quarry Bay, North Point, Taikoo |
+| Central & Western | Sheung Wan, Admiralty, Central |
+| Wan Chai | Happy Valley, Wan Chai, Causeway Bay |
+| Southern | Stanley, Repulse Bay |
+| Railways | Island Line, Tsuen Wan Line, East Rail Line, Tung Chung Line |
+| Utilities | CLP, HK Electric |
 
-### 新界及離島 1
+### New Territories & Islands 1
 
 <img align="right" src="https://i.imgur.com/DJ62ccS.png" width="48%">
 
-| 地產組 | 地區 |
-|--------|------|
-| 北區 | 粉嶺、上水 |
-| 大埔 | 大埔墟、太和、大埔 |
-| 沙田 | 沙田、馬鞍山、火炭 |
-| 元朗 | 元朗、天水圍、錦田 |
-| 西貢 | 西貢、清水灣、將軍澳 |
-| 屯門 | 屯門、屯門市中心、兆康 |
-| 葵青 | 葵涌、葵芳、青衣 |
-| 離島 | 東涌、愉景灣 |
-| 鐵路 | 東鐵線、屯馬線、西鐵線、輕鐵 |
-| 公共事業 | 水務署、煤氣 |
+| District / Type | Neighborhoods |
+|--------------|-------|
+| North | Fanling, Sheung Shui |
+| Tai Po | Tai Po Market, Tai Wo, Tai Po |
+| Sha Tin | Sha Tin, Ma On Shan, Fo Tan |
+| Yuen Long | Yuen Long, Tin Shui Wai, Kam Tin |
+| Sai Kung | Sai Kung, Clear Water Bay, Tseung Kwan O |
+| Tuen Mun | Tuen Mun, Tuen Mun Town Centre, Siu Hong |
+| Kwai Tsing | Kwai Chung, Kwai Fong, Tsing Yi |
+| Islands | Tung Chung, Discovery Bay |
+| Railways | East Rail Line, Tuen Ma Line, West Rail Line, Light Rail |
+| Utilities | Water Supplies Department, Towngas |
 
 <br>
 
-## 🚀 未來計劃
+## 🚀 Roadmap
 
-HKopoly 會持續更新，以下係暫定方向：
+Planned directions:
 
-- **🗺️ 新地圖**  
-  加入澳門、台灣等更多本地化主題棋盤。歡迎社群透過 Pull Request 提交新地圖（詳見 [`maps/EDIT_MAP_GUIDE.md`](maps/EDIT_MAP_GUIDE.md)）。
+- **🗺️ Expanding Map Roster**  
+  Adding more localized themes. Community contributions are welcome via Pull Request.
 
-- **⚙️ 自訂規則**  
-  讓房主調整初始資金、坐監回合、租金倍率等家規。
+- **⚙️ Custom House Rules**  
+  Host options for custom starting cash, maximum jail turns, and rent multipliers.
 
-- **🎨 介面與動畫優化**  
-  改善 UI 佈局，加入更流暢嘅擲骰、買地及交易動畫。
+- **🎨 UI & Animation Overhauls**  
+  Smoother visual indicators for dice rolls, purchasing assets, and trade proposals.
 
-- **📈 本地戰績紀錄**  
-  引入非註冊式趣味統計，例如勝率、破產次數、常用策略等。
-
-<br>
-
-## ⚠️ 免責聲明
-
-- 本項目純屬娛樂、學習及個人技術交流用途。
-- 本項目與 Hasbro、港鐵公司或任何相關商標持有人並無關聯。
-- 「Monopoly / 大富翁」為其權利人之註冊商標；本項目為非商業性致敬實作。
-- 棋盤上所有地名及品牌名稱僅作主題包裝用途。如有版權或商標疑慮，歡迎透過 GitHub Issues 聯絡。
+- **📈 Lghtweight Stats**  
+  Account-free tracking for fun local metrics like win rates, bankruptcy counts, and favorite color groups.
 
 <br>
 
-## 💡 關於呢個項目
+## ⚠️ Disclaimer
 
-網上其實有唔少線上大富翁，但要搵到一個**免費、免下載、規則完整、又有香港味**嘅版本並唔容易。
+- This project is developed solely for entertainment, educational, and personal technical demonstration purposes.
+- It is entirely independent and not affiliated with Hasbro, MTR Corporation, or any official trademark holders.
+- "Monopoly" is a registered trademark of its respective owners; this application functions strictly as a non-commercial homage.
+- All regional and brand references are used for thematic flavor. For copyright or trademark concerns, please open a GitHub Issue for prompt resolution.
 
-所以我整咗 HKopoly：  
-希望大家可以隨時開個房，同朋友輕鬆玩返一鋪熟悉又本地化嘅棋盤遊戲。
+<br>
 
-**如果你鍾意呢份純粹、無商業味嘅小項目，歡迎俾粒 ⭐ 支持持續維護！**
+## 💡 About
 
-有建議或發現問題，歡迎到 [Issues](https://github.com/denniemok/hkopoly-public/issues) 回報。
+While plenty of web-based Monopoly clones exist, a clean, zero-install option using authentic Hong Kong locations is hard to find. HKopoly closes that gap, providing a completely free, frictionless space to spin up a local board game night anytime.
+
+**If you enjoy this non-commercial passion project, leaving a ⭐ helps keep it maintained.**
+
+For bugs and feature requests, please open an [Issue](https://github.com/denniemok/hkopoly-public/issues).

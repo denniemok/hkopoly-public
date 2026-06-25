@@ -1,24 +1,43 @@
-# 地圖編輯指南
+# Map Editing Guide
 
-歡迎為 HKopoly 設計新棋盤！本指南說明 `urban1.json` / `rural1.json` 的資料結構，以及建立或修改地圖時需要注意的事項。
+繁體中文：[EDIT_MAP_GUIDE.zh-HK.md](EDIT_MAP_GUIDE.zh-HK.md)
 
-## 檔案結構
+Welcome! This guide explains the JSON structure for HKopoly board maps and how to create or edit them.
 
-每個地圖 JSON 包含四個頂層欄位：
+## Locales
 
-| 欄位 | 說明 |
-|------|------|
-| `id` | 地圖唯一識別碼（例如 `urban1`） |
-| `name` | 顯示名稱（例如 `市區 1`） |
-| `config` | 遊戲規則設定 |
-| `board` | 40 格棋盤定義（`id` 0–39） |
-| `groups` | 地產顏色組定義 |
+Game content is split by locale. Each locale has its own folder under `maps/`:
+
+| Locale | Folder | Live site |
+|--------|--------|-----------|
+| English | `maps/en/` | [hkopoly.com](https://hkopoly.com) |
+| Traditional Chinese (HK) | `maps/zh-HK/` | [zh.hkopoly.com](https://zh.hkopoly.com) |
+
+The English and Chinese sites run on **separate servers**—rooms and players are not shared.
+
+Board **layout** (`id` 0–39, prices, rents, groups) is the same across locales; **display names** (`name`, `subtitle`, `groups[].name`, etc.) are localized per folder. When contributing a new map, please provide JSON for **both** locales unless the theme is intentionally single-locale.
+
+Reference files: `maps/en/urban1.json`, `maps/zh-HK/urban1.json`.
 
 ---
 
-## 棋盤佈局（`id` 0–39 的位置）
+## File structure
 
-棋盤共 **40 格**，玩家按順時針方向移動：`0 → 1 → 2 → … → 39 → 0`。
+Each map JSON has five top-level fields:
+
+| Field | Description |
+|-------|-------------|
+| `id` | Unique map id (e.g. `urban1`) — same across locales |
+| `name` | Display name (localized, e.g. `Urban 1` / `市區 1`) |
+| `config` | Game rule settings (shared values; see below) |
+| `board` | 40-space board definition (`id` 0–39) |
+| `groups` | Property colour group definitions |
+
+---
+
+## Board layout (`id` 0–39)
+
+The board has **40 spaces**. Players move clockwise: `0 → 1 → 2 → … → 39 → 0`.
 
 ```
   0 ─── 1 ─── 2 ─── 3 ─── 4 ─── 5 ─── 6 ─── 7 ─── 8 ─── 9 ── 10
@@ -31,7 +50,7 @@
   │                                                           │
  36                                                          14
   │                                                           │
- 35                        （棋盤中央）                       15
+ 35                        (board centre)                    15
   │                                                           │
  34                                                          16
   │                                                           │
@@ -44,158 +63,157 @@
  30 ── 29 ── 28 ── 27 ── 26 ── 25 ── 24 ── 23 ── 22 ── 21 ── 20
 ```
 
-| 位置 | `id` | 角落 / 邊 | 預設用途 |
-|------|------|-----------|----------|
-| 左上角 | **0** | 頂行起點 | `go`（起點） |
-| 頂行（左→右） | **1–9** | 頂邊 | 地產、機會、稅項等 |
-| 右上角 | **10** | 頂行終點 | `jail`（探監） |
-| 右邊（上→下） | **11–19** | 右邊 | 地產、社區基金等 |
-| 右下角 | **20** | 底行終點 | `parking`（免費泊車） |
-| 底行（右→左） | **21–29** | 底邊 | 地產、機會等 |
-| 左下角 | **30** | 底行起點 | `gotojail`（即時入獄） |
-| 左邊（下→上） | **31–39** | 左邊 | 地產、稅項等 |
+| Position | `id` | Corner / edge | Default use |
+|----------|------|---------------|-------------|
+| Top-left | **0** | Top row start | `go` |
+| Top row (L→R) | **1–9** | Top edge | Properties, Chance, tax, etc. |
+| Top-right | **10** | Top row end | `jail` (visiting only) |
+| Right (T→B) | **11–19** | Right edge | Properties, Community Chest, etc. |
+| Bottom-right | **20** | Bottom row end | `parking` (Free Parking) |
+| Bottom row (R→L) | **21–29** | Bottom edge | Properties, Chance, etc. |
+| Bottom-left | **30** | Bottom row start | `gotojail` |
+| Left (B→T) | **31–39** | Left edge | Properties, tax, etc. |
 
-> **注意：** `id` 0 在畫面上是**左上角**（起點），不是傳統大富翁的右下角。`id` 10 必須是 `jail`（探監），`id` 30 必須是 `gotojail`（即時入獄）。
-
----
-
-## 格子類型（`board[].type`）
-
-| `type` | 說明 | 常用欄位 |
-|--------|------|----------|
-| `go` | 起點 | `name`, `subtitle`（可選，顯示經過/停留獎金） |
-| `property` | 地產 | `name`, `price`, `rent`, `group` |
-| `railroad` | 鐵路 | `name`, `price`, `rent`, `group: "railroad"` |
-| `utility` | 公用事業 | `name`, `price`, `group: "utility"` |
-| `chance` | 機會卡 | `name` |
-| `community` | 社區基金 | `name` |
-| `tax` | 稅項 | `name`, `amount` |
-| `jail` | 探監（只可探監，不入獄） | `name` |
-| `parking` | 免費泊車 | `name` |
-| `gotojail` | 即時入獄 | `name` |
-
-### 租金陣列 `rent`
-
-地產 `rent` 為長度 6 的陣列，依序代表：
-
-`[空地租金, 1 幢, 2 幢, 3 幢, 4 幢, 酒店]`
-
-鐵路 `rent` 為長度 4 的陣列，依擁有 1–4 條路線遞增。
+> **Note:** `id` 0 is **top-left** on screen (Go), not the classic Monopoly bottom-right. `id` 10 must be `jail`; `id` 30 must be `gotojail`.
 
 ---
 
-## 地產組（`groups`）
+## Space types (`board[].type`)
 
-每個顏色組需要以下欄位：
+| `type` | Description | Common fields |
+|--------|-------------|---------------|
+| `go` | Go | `name`, `subtitle` (optional pass/land bonus text) |
+| `property` | Property | `name`, `price`, `rent`, `group` |
+| `railroad` | Railway / MTR | `name`, `price`, `rent`, `group: "railroad"` |
+| `utility` | Utility | `name`, `price`, `group: "utility"` |
+| `chance` | Chance | `name` |
+| `community` | Community Chest | `name` |
+| `tax` | Tax | `name`, `amount` |
+| `jail` | Jail (visiting only) | `name`, `cellLabel` |
+| `parking` | Free Parking | `name` |
+| `gotojail` | Go to Jail | `name` |
+
+### Rent array `rent`
+
+Property `rent` is a length-6 array:
+
+`[unimproved, 1 house, 2 houses, 3 houses, 4 houses, hotel]`
+
+Railroad `rent` is length 4, scaling with 1–4 lines owned.
+
+---
+
+## Property groups (`groups`)
+
+Each colour group needs:
 
 ```json
 "shamShuiPo": {
   "id": "shamShuiPo",
-  "name": "深水埗",
+  "name": "Sham Shui Po",
   "color": "#04642c",
-  "icon": "/hd_icon_ssp.webp",
+  "icon": "/icons/hk_18d_ssp.webp",
   "spaceIds": [6, 8, 9],
   "houseCost": 50
 }
 ```
 
-| 欄位 | 說明 |
-|------|------|
-| `id` | 組別 key，須與 `board[].group` 一致 |
-| `name` | 顯示名稱 |
-| `color` | 地產色帶顏色（HEX） |
-| `icon` | 圖示（見下方） |
-| `spaceIds` | 此組所有格子的 `id` 陣列 |
-| `houseCost` | 起樓費用（鐵路 / 公用事業可省略） |
+| Field | Description |
+|-------|-------------|
+| `id` | Group key; must match `board[].group` |
+| `name` | Display name (localized) |
+| `color` | Colour band (HEX) |
+| `icon` | Icon path or Lucide name (see below) |
+| `spaceIds` | Array of space `id`s in this group |
+| `houseCost` | House/hotel build cost (omit for railroad / utility) |
 
-每張地圖應有 **8 個地產顏色組**、**1 個鐵路組**（`railroad`）、**1 個公用事業組**（`utility`）。
-
----
-
-## 圖示（`groups[].icon`）
-
-### 香港 18 區地產圖示（WebP）
-
-地產顏色組可使用內建區徽圖片，路徑格式為 `/hd_icon_<代碼>.webp`：
-
-| 代碼 | 檔名 | 香港行政區 |
-|------|------|------------|
-| `central` | `/hd_icon_central.webp` | 中西區 |
-| `wc` | `/hd_icon_wc.webp` | 灣仔 |
-| `east` | `/hd_icon_east.webp` | 東區 |
-| `south` | `/hd_icon_south.webp` | 南區 |
-| `ytm` | `/hd_icon_ytm.webp` | 油尖旺 |
-| `ssp` | `/hd_icon_ssp.webp` | 深水埗 |
-| `kc` | `/hd_icon_kc.webp` | 九龍城 |
-| `kt` | `/hd_icon_kt.webp` | 觀塘 |
-| `north` | `/hd_icon_north.webp` | 北區 |
-| `tp` | `/hd_icon_tp.webp` | 大埔 |
-| `st` | `/hd_icon_st.webp` | 沙田 |
-| `sk` | `/hd_icon_sk.webp` | 西貢 |
-| `tm` | `/hd_icon_tm.webp` | 屯門 |
-| `yl` | `/hd_icon_yl.webp` | 元朗 |
-| `kwt` | `/hd_icon_kwt.webp` | 葵青 |
-| `island` | `/hd_icon_island.webp` | 離島 |
-
-> 香港共有 18 個行政區；目前遊戲內建 **16 個**區徽圖示（尚未包含黃大仙、荃灣）。新地圖請優先使用上表已有圖示的區域。
-
-### Lucide 圖示（kebab-case）
-
-若 `icon` **不以 `/` 開頭**，系統會視為 [Lucide](https://lucide.dev/icons/) 圖示名稱（kebab-case），並自動轉換為元件。
-
-現有地圖範例：
-
-| 組別 | `icon` 值 |
-|------|-----------|
-| 鐵路 | `tram-front` |
-| 公用事業 | `zap` |
-
-其他常用選項：`train-front`、`building-2`、`landmark`、`zap`、`droplets`、`flame` 等。完整列表請參考 [lucide.dev/icons](https://lucide.dev/icons/)。
+Each map should have **8 property colour groups**, **1 railroad group** (`railroad`), and **1 utility group** (`utility`).
 
 ---
 
-## 遊戲設定（`config`）
+## Icons (`groups[].icon`)
+
+### Hong Kong 18-district badges (WebP)
+
+Property groups may use built-in district icons at `/icons/hk_18d_<code>.webp`:
+
+| Code | Path | District |
+|------|------|----------|
+| `central` | `/icons/hk_18d_central.webp` | Central & Western |
+| `wc` | `/icons/hk_18d_wc.webp` | Wan Chai |
+| `east` | `/icons/hk_18d_east.webp` | Eastern |
+| `south` | `/icons/hk_18d_south.webp` | Southern |
+| `ytm` | `/icons/hk_18d_ytm.webp` | Yau Tsim Mong |
+| `ssp` | `/icons/hk_18d_ssp.webp` | Sham Shui Po |
+| `kc` | `/icons/hk_18d_kc.webp` | Kowloon City |
+| `kt` | `/icons/hk_18d_kt.webp` | Kwun Tong |
+| `wts` | `/icons/hk_18d_wts.webp` | Wong Tai Sin |
+| `north` | `/icons/hk_18d_north.webp` | North |
+| `tp` | `/icons/hk_18d_tp.webp` | Tai Po |
+| `st` | `/icons/hk_18d_st.webp` | Sha Tin |
+| `sk` | `/icons/hk_18d_sk.webp` | Sai Kung |
+| `tm` | `/icons/hk_18d_tm.webp` | Tuen Mun |
+| `yl` | `/icons/hk_18d_yl.webp` | Yuen Long |
+| `tw` | `/icons/hk_18d_tw.webp` | Tsuen Wan |
+| `kwt` | `/icons/hk_18d_kwt.webp` | Kwai Tsing |
+| `island` | `/icons/hk_18d_island.webp` | Islands |
+
+### Lucide icons (kebab-case)
+
+If `icon` does **not** start with `/`, it is treated as a [Lucide](https://lucide.dev/icons/) icon name (kebab-case).
+
+| Group | `icon` value |
+|-------|--------------|
+| Railroad | `tram-front` |
+| Utility | `zap` |
+
+Other options: `train-front`, `building-2`, `landmark`, `droplets`, `flame`, etc.
+
+---
+
+## Game config (`config`)
 
 ```json
 {
-  "STARTING_MONEY": 1500,
   "GO_SALARY": 200,
   "GO_LANDING_BONUS": 100,
   "JAIL_POSITION": 10,
   "JAIL_BAIL": 50,
   "OWNABLE_SPACE_TYPES": ["property", "railroad", "utility"],
-  "PLAYER_COLORS": ["#E63946", "#457B9D", "..."]
+  "PLAYER_COLORS": ["#C0DA5A", "#FFC13F", "..."]
 }
 ```
 
-| 欄位 | 說明 |
-|------|------|
-| `STARTING_MONEY` | 每位玩家起始資金 |
-| `GO_SALARY` | 經過起點獎金 |
-| `GO_LANDING_BONUS` | 停留起點額外獎金（經過 + 停留 = 總獎金） |
-| `JAIL_POSITION` | 監獄格子 `id`（固定為 10） |
-| `JAIL_BAIL` | 保釋金 |
-| `OWNABLE_SPACE_TYPES` | 可購買的格子類型 |
-| `PLAYER_COLORS` | 玩家棋子顏色（最多 10 色） |
+| Field | Description |
+|-------|-------------|
+| `GO_SALARY` | Salary for passing Go |
+| `GO_LANDING_BONUS` | Extra bonus for landing on Go (pass + land = total) |
+| `JAIL_POSITION` | Jail space `id` (always 10) |
+| `JAIL_BAIL` | Bail amount |
+| `OWNABLE_SPACE_TYPES` | Purchasable space types |
+| `PLAYER_COLORS` | Player token colours (up to 12; use the same palette as existing maps) |
+
+> Keep `config` values aligned with existing maps unless you are deliberately proposing a rule change.
 
 ---
 
-## 設計檢查清單
+## Checklist
 
-- [ ] `board` 陣列長度為 **40**，`id` 從 **0** 到 **39** 連續不重複
-- [ ] `id` 0 為 `go`，`id` 10 為 `jail`，`id` 20 為 `parking`，`id` 30 為 `gotojail`
-- [ ] 每個 `property` / `railroad` / `utility` 的 `group` 在 `groups` 中有對應定義
-- [ ] 每個地產組的 `spaceIds` 與實際格子 `id` 一致
-- [ ] 鐵路組固定 4 格（`spaceIds` 長度 4），公用事業固定 2 格
-- [ ] 機會（`chance`）及社區基金（`community`）各 3 格為佳（與現有地圖一致）
-- [ ] 稅項（`tax`）2 格
+- [ ] JSON placed under `maps/en/` and/or `maps/zh-HK/` as appropriate
+- [ ] `board` length is **40**; `id` **0–39** unique and consecutive
+- [ ] `id` 0 = `go`, 10 = `jail`, 20 = `parking`, 30 = `gotojail`
+- [ ] Every `property` / `railroad` / `utility` `group` exists in `groups`
+- [ ] Each group's `spaceIds` matches actual space `id`s
+- [ ] Railroad group has 4 spaces; utility group has 2
+- [ ] ~3 Chance and ~3 Community Chest spaces (matches existing maps)
+- [ ] 2 tax spaces
 
 ---
 
-## 提交新地圖
+## Submitting a new map
 
-1. 在 `maps/` 資料夾新增 `<your-map-id>.json`
-2. 參考 `urban1.json` 或 `rural1.json` 的完整結構
-3. 開啟 Pull Request 至本 repo，並簡述主題與地區選擇
+1. Add `<your-map-id>.json` under `maps/en/` and `maps/zh-HK/` (or the locale(s) you support)
+2. Use `urban1.json` / `rural1.json` in each locale folder as references
+3. Open a Pull Request with a short description of the theme and districts used
 
-我們歡迎其他本地化主題棋盤的創意提案！
+We welcome new Hong Kong–themed boards and other localized themes!

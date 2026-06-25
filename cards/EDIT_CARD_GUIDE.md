@@ -1,153 +1,170 @@
-# 卡牌編輯指南
+# Card Editing Guide
 
-歡迎為 HKopoly 設計或修改機會卡與社區基金卡！本指南說明 `cards.json` 的資料結構，以及編輯卡牌時需要注意的事項。
+繁體中文：[EDIT_CARD_GUIDE.zh-HK.md](EDIT_CARD_GUIDE.zh-HK.md)
 
-## 檔案結構
+Welcome! This guide explains the JSON structure for HKopoly Chance and Community Chest cards.
 
-`cards.json` 包含三個頂層欄位：
+## Locales
 
-| 欄位 | 說明 |
-|------|------|
-| `spacePlaceholder` | 移動卡文字中的地點佔位符（固定為 `{space}`） |
-| `chance` | 機會卡牌組（陣列） |
-| `community` | 社區基金卡牌組（陣列） |
+Card text is localized per locale. Each locale has its own file:
 
-每張卡牌至少需要 `text`（顯示文字）及 `action`（執行動作）。其餘欄位視 `action` 類型而定。
+| Locale | Path | Live site |
+|--------|------|-----------|
+| English | `cards/en/cards.json` | [hkopoly.com](https://hkopoly.com) |
+| Traditional Chinese (HK) | `cards/zh-HK/cards.json` | [zh.hkopoly.com](https://zh.hkopoly.com) |
+
+The English and Chinese sites run on **separate servers**—rooms and players are not shared.
+
+Card **logic** (`action`, `target`, `amount`, etc.) should stay the same across locales; only **`text`** (and currency wording in descriptions) is translated. When editing cards, update **both** locale files unless the change is English- or Chinese-only by design.
 
 ---
 
-## 卡牌基本格式
+## File structure
+
+`cards.json` has three top-level fields:
+
+| Field | Description |
+|-------|-------------|
+| `spacePlaceholder` | Placeholder for move-card destinations (always `{space}`) |
+| `chance` | Chance card deck (array) |
+| `community` | Community Chest deck (array) |
+
+Each card needs at least `text` (display string) and `action` (game logic). Other fields depend on the `action` type.
+
+---
+
+## Basic card format
 
 ```json
 {
-  "text": "銀行派息 HK$50。",
+  "text": "Bank dividend HK$50.",
   "action": "money",
   "amount": 50
 }
 ```
 
-| 欄位 | 說明 |
-|------|------|
-| `text` | 抽到卡牌時顯示嘅描述（支援 `{space}` 佔位符，見下方） |
-| `action` | 卡牌觸發嘅遊戲邏輯類型 |
+| Field | Description |
+|-------|-------------|
+| `text` | Description shown when drawn (supports `{space}` placeholder; see below) |
+| `action` | Game logic triggered by the card |
 
 ---
 
-## 地點佔位符 `{space}`
+## Placeholder `{space}`
 
-`spacePlaceholder` 預設為 `{space}`。當卡牌 `action` 為 `move` 且設有 `target` 時，系統會自動將 `{space}` 替換為棋盤上對應格子的 `name`。
+`spacePlaceholder` defaults to `{space}`. For cards with `action: "move"` and a `target`, the game replaces `{space}` with the target board space's `name` from the **active map**.
 
 ```json
 {
-  "text": "前進至{space}。如經過起點，領取 HK$200。",
+  "text": "Advance to {space}. If you pass Go, collect HK$200.",
   "action": "move",
   "target": 13
 }
 ```
 
-若棋盤 `id` 13 的名稱為「旺角」，玩家會看到：「前進至旺角。如經過起點，領取 HK$200。」
+If space `id` 13 is named "Mong Kok", the player sees: "Advance to Mong Kok. If you pass Go, collect HK$200."
 
-> **注意：** `target` 必須對應地圖 `board` 陣列中有效的格子 `id`（0–39）。不同地圖的格子名稱不同，但 `id` 位置一致。
+> **Note:** `target` must be a valid space `id` (0–39) on the board. Space **names** differ by locale/map theme, but **positions** (`id`) are consistent across maps.
 
 ---
 
-## 動作類型（`action`）
+## Action types (`action`)
 
-### `move` — 移動至指定格子
+### `move` — Move to a space
 
-將玩家直接移動到 `target` 指定的棋盤 `id`，並觸發該格子的落點效果（買地、交租等）。
+Moves the player directly to `target` and triggers that space's effects (buy, pay rent, etc.).
 
-| 欄位 | 必填 | 說明 |
-|------|------|------|
-| `target` | 是 | 目標格子 `id`（0–39） |
-| `collectGo` | 否 | 是否計算經過起點獎金。預設 `true`；設為 `false` 則不發放 |
+| Field | Required | Description |
+|-------|----------|-------------|
+| `target` | Yes | Target space `id` (0–39) |
+| `collectGo` | No | Whether passing Go pays salary. Default `true`; set `false` to skip |
 
-經過起點獎金取自地圖 `config.GO_SALARY`（預設 HK$200）。若最終停在起點（`id` 0），另加 `config.GO_LANDING_BONUS`（預設 HK$100）。
+Passing Go uses `config.GO_SALARY` (default HK$200). Landing on Go (`id` 0) also adds `config.GO_LANDING_BONUS` (default HK$100).
 
 ```json
-{ "text": "前進至{space}，領取 HK$300。", "action": "move", "target": 0, "collectGo": true }
+{ "text": "Advance to {space}. Collect HK$300.", "action": "move", "target": 0, "collectGo": true }
 ```
 
 ---
 
-### `money` — 收取或繳付現金
+### `money` — Receive or pay cash
 
-| 欄位 | 必填 | 說明 |
-|------|------|------|
-| `amount` | 是 | 正數為收入，負數為支出 |
+| Field | Required | Description |
+|-------|----------|-------------|
+| `amount` | Yes | Positive = income; negative = payment |
 
-支出時若資金不足，會觸發抵押 / 變賣流程；仍不足則可能破產。
+If the player cannot pay, mortgage / sell flows apply; bankruptcy may follow.
 
 ```json
-{ "text": "銀行派息 HK$50。", "action": "money", "amount": 50 }
-{ "text": "繳付貧民稅 HK$15。", "action": "money", "amount": -15 }
+{ "text": "Bank dividend HK$50.", "action": "money", "amount": 50 }
+{ "text": "Pay poor tax HK$15.", "action": "money", "amount": -15 }
 ```
 
 ---
 
-### `jailCard` — 出獄許可證
+### `jailCard` — Get Out of Jail Free
 
-玩家獲得一張出獄許可證，可於坐監時使用或與其他玩家交易。
+Player receives a Get Out of Jail Free card (usable in jail or tradable).
 
 ```json
-{ "text": "出獄許可證。", "action": "jailCard" }
+{ "text": "Get Out of Jail Free card.", "action": "jailCard" }
 ```
 
 ---
 
-### `jail` — 入獄
+### `jail` — Go to Jail
 
-玩家即時入獄，**不經過起點**，亦**不**領取經過獎金。回合隨即結束。
+Player goes to jail immediately—**does not** pass Go or collect salary. Turn ends.
 
 ```json
-{ "text": "入獄，不得經過起點。", "action": "jail" }
+{ "text": "Go to Jail. Do not pass Go.", "action": "jail" }
 ```
 
 ---
 
-### `back` — 後退
+### `back` — Move backward
 
-玩家向後移動指定格數，並觸發落點效果。
+Player moves back `spaces` and triggers landing effects.
 
-| 欄位 | 必填 | 說明 |
-|------|------|------|
-| `spaces` | 是 | 後退格數（正整數） |
+| Field | Required | Description |
+|-------|----------|-------------|
+| `spaces` | Yes | Number of spaces to move back (positive integer) |
 
 ```json
-{ "text": "後退三格。", "action": "back", "spaces": 3 }
+{ "text": "Go back 3 spaces.", "action": "back", "spaces": 3 }
 ```
 
 ---
 
-### `nearestRailroad` — 前進至最近鐵路
+### `nearestRailroad` — Advance to nearest railroad
 
-將玩家移動至**前方最近**的鐵路格子（`group` 為 `railroad` 的格子）。若前方已無鐵路，則移至棋盤上第一條鐵路（`id` 最小）。
+Moves the player to the **next** railroad space (`group: "railroad"`). If none ahead, wraps to the first railroad on the board.
 
-| 欄位 | 必填 | 說明 |
-|------|------|------|
-| `payDouble` | 否 | 設為 `true` 時，若該鐵路有人擁有，租金加倍 |
+| Field | Required | Description |
+|-------|----------|-------------|
+| `payDouble` | No | If `true`, rent is doubled when the railroad is owned |
 
 ```json
-{ "text": "前進至最近的港鐵線。租金加倍。", "action": "nearestRailroad", "payDouble": true }
-{ "text": "前進至最近的港鐵線。", "action": "nearestRailroad" }
+{ "text": "Advance to the nearest MTR line. Pay double rent.", "action": "nearestRailroad", "payDouble": true }
+{ "text": "Advance to the nearest MTR line.", "action": "nearestRailroad" }
 ```
 
 ---
 
-### `repairs` — 房屋維修費
+### `repairs` — Building repairs
 
-按玩家名下物業的建築數量計算費用並強制繳付。
+Charges based on houses/hotels on owned properties.
 
-| 欄位 | 必填 | 說明 |
-|------|------|------|
-| `house` | 是 | 每間房屋（1–4 幢）的費用 |
-| `hotel` | 是 | 每間酒店（5 幢）的費用 |
+| Field | Required | Description |
+|-------|----------|-------------|
+| `house` | Yes | Cost per house (1–4 houses) |
+| `hotel` | Yes | Cost per hotel (5 houses) |
 
-只計算玩家**擁有**的物業；空地、已抵押物業不計入。
+Only **owned** properties count; vacant and mortgaged properties are excluded.
 
 ```json
 {
-  "text": "一般維修：每間房屋 HK$25，每間酒店 HK$100。",
+  "text": "General repairs: HK$25 per house, HK$100 per hotel.",
   "action": "repairs",
   "house": 25,
   "hotel": 100
@@ -156,76 +173,78 @@
 
 ---
 
-### `payEach` — 向每位玩家付款
+### `payEach` — Pay each player
 
-抽卡玩家向**每一位**其他仍在場的玩家支付 `amount`。資金不足時會逐一向每位玩家結算，可能觸發抵押流程。
+Drawing player pays `amount` to **every** other active player. Insufficient funds may trigger mortgage flows per recipient.
 
 ```json
-{ "text": "你當選主席，向每位玩家支付 HK$50。", "action": "payEach", "amount": 50 }
+{ "text": "You are elected chairman. Pay each player HK$50.", "action": "payEach", "amount": 50 }
 ```
 
 ---
 
-### `collectEach` — 向每位玩家收款
+### `collectEach` — Collect from each player
 
-每一位其他仍在場的玩家向抽卡玩家支付 `amount`。
+Every other active player pays `amount` to the drawing player.
 
 ```json
-{ "text": "今日是你生日，向每位玩家收取 HK$10。", "action": "collectEach", "amount": 10 }
+{ "text": "It is your birthday. Collect HK$10 from each player.", "action": "collectEach", "amount": 10 }
 ```
 
 ---
 
-## 兩副牌的分工
+## Two decks
 
-| 牌組 | 欄位 | 棋盤觸發 |
-|------|------|----------|
-| 機會卡 | `chance` | 停在 `type: "chance"` 的格子 |
-| 社區基金 | `community` | 停在 `type: "community"` 的格子 |
+| Deck | Field | Triggered by |
+|------|-------|--------------|
+| Chance | `chance` | Landing on `type: "chance"` |
+| Community Chest | `community` | Landing on `type: "community"` |
 
-兩副牌**獨立洗牌**，各自維護棄牌堆；抽完後會重新洗牌。
+Decks are **shuffled independently** with separate discard piles; empty decks are reshuffled.
 
-建議每副牌維持 **16 張**（與現有版本一致），但數量可彈性調整。
-
----
-
-## 與地圖的關係
-
-卡牌定義與地圖定義**分開存放**：
-
-- 卡牌文字與邏輯 → `cards/cards.json`
-- 棋盤格子與規則 → `maps/<map-id>.json`
-
-以下項目取自**地圖** `config`，卡牌本身不會覆寫：
-
-| 設定 | 影響的卡牌行為 |
-|------|----------------|
-| `GO_SALARY` | `move` 經過起點獎金 |
-| `GO_LANDING_BONUS` | 停在起點（`id` 0）的額外獎金 |
-| `JAIL_POSITION` | `jail` 入獄目標格子 |
-| 鐵路格子位置 | `nearestRailroad` 的移動目標 |
-
-修改 `move` 卡的 `target` 時，請參考 [`maps/EDIT_MAP_GUIDE.md`](../maps/EDIT_MAP_GUIDE.md) 中的棋盤佈局，確保 `id` 指向預期的格子類型。
+Aim for **16 cards** per deck (matches the current set); count is flexible.
 
 ---
 
-## 設計檢查清單
+## Relationship to maps
 
-- [ ] 每張卡都有 `text` 和 `action`
-- [ ] `action` 值為支援的類型之一（見上方列表）
-- [ ] `move` 卡的 `target` 在 0–39 範圍內，且指向合理的格子
-- [ ] `money` / `payEach` / `collectEach` 設有 `amount`
-- [ ] `back` 設有 `spaces`
-- [ ] `repairs` 同時設有 `house` 和 `hotel`
-- [ ] 卡牌文字中的金額描述與 `amount` / 費率欄位一致
-- [ ] JSON 格式正確（可用編輯器或 `JSON.parse` 驗證）
+Cards and maps are stored separately:
+
+- Card text and logic → `cards/<locale>/cards.json`
+- Board spaces and rules → `maps/<locale>/<map-id>.json`
+
+These **map** `config` values affect card behaviour (cards do not override them):
+
+| Setting | Affects |
+|---------|---------|
+| `GO_SALARY` | `move` passing Go bonus |
+| `GO_LANDING_BONUS` | Extra bonus for landing on Go (`id` 0) |
+| `JAIL_POSITION` | `jail` destination |
+| Railroad positions | `nearestRailroad` targets |
+
+When setting `move` card `target` values, see the board layout in [`maps/EDIT_MAP_GUIDE.md`](../maps/EDIT_MAP_GUIDE.md).
 
 ---
 
-## 提交修改
+## Checklist
 
-1. 編輯 `cards/cards.json`
-2. 參考本指南確認欄位與動作類型正確
-3. 開啟 Pull Request 至本 repo，並簡述修改內容（例如本地化主題、平衡調整、新增卡牌等）
+- [ ] Updated `cards/en/cards.json` and/or `cards/zh-HK/cards.json` as needed
+- [ ] Every card has `text` and `action`
+- [ ] `action` is a supported type (see above)
+- [ ] `move` `target` is 0–39 and points to a sensible space
+- [ ] `money` / `payEach` / `collectEach` include `amount`
+- [ ] `back` includes `spaces`
+- [ ] `repairs` includes both `house` and `hotel`
+- [ ] Text amounts match `amount` / rate fields
+- [ ] Same card logic across locales (only `text` differs)
+- [ ] Valid JSON
 
-歡迎提交更具地方特色的機會卡與社區基金文案！
+---
+
+## Submitting changes
+
+1. Edit `cards/en/cards.json` and `cards/zh-HK/cards.json` (or the locale(s) you support)
+2. Confirm fields and action types against this guide
+3. Open a Pull Request with a short summary (localization, balance, new cards, etc.)
+
+We welcome flavourful Chance and Community Chest copy!

@@ -1,8 +1,7 @@
 {
   "id": "rural1",
-  "name": "新界及離島 1",
+  "name": "New Territories & Islands 1",
   "config": {
-    "STARTING_MONEY": 1500,
     "GO_SALARY": 200,
     "GO_LANDING_BONUS": 100,
     "JAIL_POSITION": 10,
@@ -13,24 +12,26 @@
       "utility"
     ],
     "PLAYER_COLORS": [
-      "#E63946",
-      "#457B9D",
-      "#2A9D8F",
-      "#E9C46A",
-      "#9B5DE5",
-      "#FF9800",
-      "#E91E63",
-      "#8BC34A",
-      "#795548",
-      "#546E7A"
+      "#C0DA5A",
+      "#FFC13F",
+      "#E88147",
+      "#BE4646",
+      "#5A99DA",
+      "#80E5F3",
+      "#0D8679",
+      "#6DDB59",
+      "#9A6E5E",
+      "#C63FA2",
+      "#FB7A9E",
+      "#7B57D3"
     ]
   },
   "board": [
     {
       "id": 0,
       "type": "go",
-      "subtitle": "經過 HK$200\n停留 HK$300",
-      "name": "起點"
+      "subtitle": "Pass Go HK$200\nLand HK$300",
+      "name": "Go"
     },
     {
       "id": 1,
@@ -44,13 +45,13 @@
         160,
         250
       ],
-      "name": "粉嶺",
+      "name": "Fanling",
       "group": "north"
     },
     {
       "id": 2,
       "type": "community",
-      "name": "社區基金"
+      "name": "Community Chest"
     },
     {
       "id": 3,
@@ -64,14 +65,14 @@
         320,
         450
       ],
-      "name": "上水",
+      "name": "Sheung Shui",
       "group": "north"
     },
     {
       "id": 4,
       "type": "tax",
       "amount": 200,
-      "name": "印花稅"
+      "name": "Stamp Duty"
     },
     {
       "id": 5,
@@ -83,7 +84,7 @@
         100,
         200
       ],
-      "name": "東鐵線",
+      "name": "East Rail Line",
       "group": "railroad"
     },
     {
@@ -98,13 +99,13 @@
         400,
         550
       ],
-      "name": "大埔墟",
+      "name": "Tai Po Market",
       "group": "taiPo"
     },
     {
       "id": 7,
       "type": "chance",
-      "name": "機會"
+      "name": "Chance"
     },
     {
       "id": 8,
@@ -118,7 +119,7 @@
         400,
         550
       ],
-      "name": "太和",
+      "name": "Tai Wo",
       "group": "taiPo"
     },
     {
@@ -133,13 +134,14 @@
         450,
         600
       ],
-      "name": "大埔",
+      "name": "Tai Po",
       "group": "taiPo"
     },
     {
       "id": 10,
       "type": "jail",
-      "name": "探監"
+      "name": "Visiting",
+      "cellLabel": "In jail"
     },
     {
       "id": 11,
@@ -153,14 +155,14 @@
         625,
         750
       ],
-      "name": "沙田",
+      "name": "Sha Tin",
       "group": "shaTin"
     },
     {
       "id": 12,
       "type": "utility",
       "price": 150,
-      "name": "水務署",
+      "name": "Water Supplies Dept",
       "group": "utility"
     },
     {
@@ -175,7 +177,7 @@
         625,
         750
       ],
-      "name": "馬鞍山",
+      "name": "Ma On Shan",
       "group": "shaTin"
     },
     {
@@ -190,7 +192,7 @@
         700,
         900
       ],
-      "name": "火炭",
+      "name": "Fo Tan",
       "group": "shaTin"
     },
     {
@@ -203,7 +205,7 @@
         100,
         200
       ],
-      "name": "屯馬線",
+      "name": "Tuen Ma Line",
       "group": "railroad"
     },
     {
@@ -218,13 +220,13 @@
         750,
         950
       ],
-      "name": "元朗",
+      "name": "Yuen Long",
       "group": "yuenLong"
     },
     {
       "id": 17,
       "type": "community",
-      "name": "社區基金"
+      "name": "Community Chest"
     },
     {
       "id": 18,
@@ -238,7 +240,7 @@
         750,
         950
       ],
-      "name": "天水圍",
+      "name": "Tin Shui Wai",
       "group": "yuenLong"
     },
     {
@@ -253,13 +255,13 @@
         800,
         1000
       ],
-      "name": "錦田",
+      "name": "Kam Tin",
       "group": "yuenLong"
     },
     {
       "id": 20,
       "type": "parking",
-      "name": "免費泊車"
+      "name": "Free Parking"
     },
     {
       "id": 21,
@@ -273,13 +275,13 @@
         875,
         1050
       ],
-      "name": "西貢",
+      "name": "Sai Kung",
       "group": "saiKung"
     },
     {
       "id": 22,
       "type": "chance",
-      "name": "機會"
+      "name": "Chance"
     },
     {
       "id": 23,
@@ -293,7 +295,7 @@
         875,
         1050
       ],
-      "name": "清水灣",
+      "name": "Clear Water Bay",
       "group": "saiKung"
     },
     {
@@ -308,7 +310,7 @@
         925,
         1100
       ],
-      "name": "將軍澳",
+      "name": "Tseung Kwan O",
       "group": "saiKung"
     },
     {
@@ -321,7 +323,7 @@
         100,
         200
       ],
-      "name": "西鐵線",
+      "name": "West Rail Line",
       "group": "railroad"
     },
     {
@@ -336,7 +338,7 @@
         975,
         1150
       ],
-      "name": "屯門",
+      "name": "Tuen Mun",
       "group": "tuenMun"
     },
     {
@@ -351,14 +353,14 @@
         975,
         1150
       ],
-      "name": "屯門市中心",
+      "name": "Tuen Mun市中心",
       "group": "tuenMun"
     },
     {
       "id": 28,
       "type": "utility",
       "price": 150,
-      "name": "煤氣",
+      "name": "Towngas",
       "group": "utility"
     },
     {
@@ -373,13 +375,13 @@
         1025,
         1200
       ],
-      "name": "兆康",
+      "name": "Siu Hong",
       "group": "tuenMun"
     },
     {
       "id": 30,
       "type": "gotojail",
-      "name": "即時入獄"
+      "name": "Go To Jail"
     },
     {
       "id": 31,
@@ -393,7 +395,7 @@
         1100,
         1275
       ],
-      "name": "葵涌",
+      "name": "Kwai Chung",
       "group": "kwaiTsing"
     },
     {
@@ -408,13 +410,13 @@
         1100,
         1275
       ],
-      "name": "葵芳",
+      "name": "Kwai Fong",
       "group": "kwaiTsing"
     },
     {
       "id": 33,
       "type": "community",
-      "name": "社區基金"
+      "name": "Community Chest"
     },
     {
       "id": 34,
@@ -428,7 +430,7 @@
         1150,
         1300
       ],
-      "name": "青衣",
+      "name": "Tsing Yi",
       "group": "kwaiTsing"
     },
     {
@@ -441,13 +443,13 @@
         100,
         200
       ],
-      "name": "輕鐵",
+      "name": "Light Rail",
       "group": "railroad"
     },
     {
       "id": 36,
       "type": "chance",
-      "name": "機會"
+      "name": "Chance"
     },
     {
       "id": 37,
@@ -461,14 +463,14 @@
         1300,
         1500
       ],
-      "name": "東涌",
+      "name": "Tung Chung",
       "group": "islands"
     },
     {
       "id": 38,
       "type": "tax",
       "amount": 100,
-      "name": "差餉"
+      "name": "Rates"
     },
     {
       "id": 39,
@@ -482,16 +484,16 @@
         1700,
         2000
       ],
-      "name": "愉景灣",
+      "name": "Discovery Bay",
       "group": "islands"
     }
   ],
   "groups": {
     "north": {
       "id": "north",
-      "name": "北區",
+      "name": "North",
       "color": "#14b4a4",
-      "icon": "/hd_icon_north.webp",
+      "icon": "/icons/hk_18d_north.webp",
       "spaceIds": [
         1,
         3
@@ -500,9 +502,9 @@
     },
     "taiPo": {
       "id": "taiPo",
-      "name": "大埔",
+      "name": "Tai Po",
       "color": "#04a454",
-      "icon": "/hd_icon_tp.webp",
+      "icon": "/icons/hk_18d_tp.webp",
       "spaceIds": [
         6,
         8,
@@ -512,9 +514,9 @@
     },
     "shaTin": {
       "id": "shaTin",
-      "name": "沙田",
+      "name": "Sha Tin",
       "color": "#1c9c5c",
-      "icon": "/hd_icon_st.webp",
+      "icon": "/icons/hk_18d_st.webp",
       "spaceIds": [
         11,
         13,
@@ -524,9 +526,9 @@
     },
     "yuenLong": {
       "id": "yuenLong",
-      "name": "元朗",
+      "name": "Yuen Long",
       "color": "#9c4c1c",
-      "icon": "/hd_icon_yl.webp",
+      "icon": "/icons/hk_18d_yl.webp",
       "spaceIds": [
         16,
         18,
@@ -536,9 +538,9 @@
     },
     "saiKung": {
       "id": "saiKung",
-      "name": "西貢",
+      "name": "Sai Kung",
       "color": "#04ac9c",
-      "icon": "/hd_icon_sk.webp",
+      "icon": "/icons/hk_18d_sk.webp",
       "spaceIds": [
         21,
         23,
@@ -548,9 +550,9 @@
     },
     "tuenMun": {
       "id": "tuenMun",
-      "name": "屯門",
+      "name": "Tuen Mun",
       "color": "#049ca4",
-      "icon": "/hd_icon_tm.webp",
+      "icon": "/icons/hk_18d_tm.webp",
       "spaceIds": [
         26,
         27,
@@ -560,9 +562,9 @@
     },
     "kwaiTsing": {
       "id": "kwaiTsing",
-      "name": "葵青",
+      "name": "Kwai Tsing",
       "color": "#0c7c04",
-      "icon": "/hd_icon_kwt.webp",
+      "icon": "/icons/hk_18d_kwt.webp",
       "spaceIds": [
         31,
         32,
@@ -572,9 +574,9 @@
     },
     "islands": {
       "id": "islands",
-      "name": "離島",
+      "name": "Islands",
       "color": "#6c243c",
-      "icon": "/hd_icon_island.webp",
+      "icon": "/icons/hk_18d_island.webp",
       "spaceIds": [
         37,
         39
@@ -583,7 +585,7 @@
     },
     "railroad": {
       "id": "railroad",
-      "name": "鐵路",
+      "name": "Railroads",
       "color": "#2F4F4F",
       "icon": "tram-front",
       "spaceIds": [
@@ -595,7 +597,7 @@
     },
     "utility": {
       "id": "utility",
-      "name": "公用事業",
+      "name": "Utilities",
       "color": "#708090",
       "icon": "zap",
       "spaceIds": [
