@@ -137,6 +137,14 @@
 
 <br>
 
+## 🙏 致謝
+
+* [Richup.io](https://richup.io) 作為線上牌類遊戲體驗嘅核心靈感來源
+* [notificationsounds.com](https://notificationsounds.com/) 提供遊戲音效
+* [Reddit 用戶 u/HKGMINECRAFT](https://www.reddit.com/user/HKGMINECRAFT/) 提供 18 區旗幟
+
+<br>
+
 ## 💡 關於呢個項目
 
 網上其實有唔少線上大富翁，但要搵到一個免費、免下載、規則完整、又有香港味嘅版本並唔容易。

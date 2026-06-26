@@ -5,12 +5,12 @@
 
 # 🏙️ HKopoly ✨ Hong Kong Monopoly Online
 
-**HKopoly** is a fast-paced, feature-rich multiplayer board game bringing the streets of Hong Kong to your browser! Inspired by [Richup.io](https://richup.io) (an online alternative to Monopoly), it packs familiar local vibes into every match from Sham Shui Po to Fanling.
+**HKopoly** is a fast-paced, browser-based multiplayer Monopoly alternative packed with authentic Hong Kong vibes. Inspired by [Richup.io](https://richup.io), it brings familiar neighbourhoods, from Sham Shui Po to Yuen Long, straight to your online game nights.
 
-With deep mechanics to keep rounds exciting, the real highlight is our smart AI: these bots play strategically and can seamlessly step in for you if you need to take a break.
+While deep mechanics keep every match competitive, the true highlight is the built-in smart AI. These bots play strategically and can seamlessly step in for any player who needs to take a break, ensuring your games never stall.
 
 **No Ads, No Paywalls, No VIP Tiers.**  
-Built entirely for seamless online game nights with friends.
+Built entirely for frictionless, community-first game nights with friends.
 
 <br>
 
@@ -56,43 +56,43 @@ Built entirely for seamless online game nights with friends.
   No ads, paywalls, or hidden fees. Built purely for the community.
 
 * **🎮 Instant Play:** 
-  No downloads or sign-ups required. Open the link and jump straight into a room.
+  Zero downloads or sign-ups required. Open the link and jump straight into a room.
 
 * **📱 Mobile-Friendly:** 
-  Responsive layout on phones and tablets. Play from your browser on the go.
+  Fully responsive UI for phones and tablets. Play on the go right from your mobile browser.
 
-* **🏘️ Hong Kong Boards:** 
-  Features two distinct maps: **Urban** and **New Territories & Islands**.
+* **🏘️ Localised Maps:** 
+  Features two distinct maps out of the box: **Urban** and **New Territories & Islands**.
 
 * **📜 Complete Ruleset:** 
-  Includes doubles, jail, Chance, Community Chest, mortgages, and auctions.
+  Authentic Monopoly mechanics including doubles, jail, Chance/Community Chest cards, mortgages, and asset auctions.
 
 * **⚡ Real-Time Multiplayer:** 
-  Supports 2 to 10 players with synchronised live boards, chat, and game logs.
+  Supports 2 – 10 players with fully synchronized live boards, chat systems, and detailed game logs.
 
 * **🤝 Flexible Trading:** 
-  Open trading for properties, cash, and Get Out of Jail cards. Declining a property purchase automatically triggers a timed auction.
+  Open-ended deals for properties, cash, and Get Out of Jail cards. Declining a property purchase automatically triggers a timed auction.
 
 * **💡 Trade Hints:** 
-  Property valuation hints help you negotiate. On by default when trading with bots or Piloted players. The host can turn them off in the lobby for a tougher challenge.
+  Dynamic valuation context to help you negotiate. Enabled by default with AI players, with a lobby toggle for hosts seeking a tougher challenge.
 
 * **🤖 Smart Bots:** 
-  Fill empty seats with computer players that bid strategically in auctions, negotiate trades, and handle debt by selling assets or proposing fire-sale deals.
+  Populate empty slots with strategic computer players that bid dynamically, negotiate trades, and manage debt by liquidating assets or proposing fire-sale deals.
 
-* **🤖 Auto Pilot:** 
-  The computer plays on your behalf. It turns on automatically when you go offline or step away, and you can toggle it on or off anytime so long sessions never stall.
+* **⚡ Auto Pilot:** 
+  Seamlessly hand over your seat to the AI when you disconnect or step away. Toggle it manually anytime to ensure long sessions never stall.
 
 * **👀 Spectate & Rejoin:** 
-  Friends can watch live, and disconnected players can jump back into their seats instantly.
+  Friends can watch matches live, and disconnected players can hot-swap back into their active seats instantly.
 
-* **⚙️ Custom Game Rules:** 
-  Hosts tailor each match in the lobby: map, player cap, starting cash, room access, spectator access, player shuffle, and Pilot mode idle time.
+* **⚙️ Custom House Rules:** 
+  Complete host control over starting cash, player caps, room visibility, spectator permissions, turn shuffles, and idle-timeout limits.
 
-* **🔊 Game Sounds:** 
-  Dice, trades, auctions, and more, with a volume control that saves in your browser.
+* **🔊 Immersive Audio:** 
+  Custom sound effects for dice rolls, trades, and auctions, paired with persistent browser-saved volume settings.
 
-* **🌐 Bilingual:** 
-  Full English and Traditional Chinese (Hong Kong) interfaces at hkopoly.com and zh.hkopoly.com.
+* **🌐 Fully Bilingual:** 
+  Seamless localized interfaces for both English and Traditional Chinese (Hong Kong) via dedicated subdomains.
 
 <br>
 
@@ -132,6 +132,14 @@ Map definitions live under [`maps`](maps) by locale. See the [Map Editing Guide]
 * It is entirely independent and not affiliated with Hasbro, MTR Corporation, or any official trademark holders.
 * "Monopoly" is a registered trademark of its respective owners; this application functions strictly as a non-commercial homage.
 * All regional and brand references are used for thematic flavor. For copyright or trademark concerns, please open a GitHub Issue for prompt resolution.
+
+<br>
+
+## 🙏 Acknowledgements
+
+* [Richup.io](https://richup.io) for the core inspiration behind the online board game experience
+* [notificationsounds.com](https://notificationsounds.com/) for the game's sound effects
+* [u/HKGMINECRAFT on Reddit](https://www.reddit.com/user/HKGMINECRAFT/) for the 18 district flags
 
 <br>
 
