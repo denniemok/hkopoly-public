@@ -1,11 +1,13 @@
 <div align="right">
-  <a title="English" href="README.md"><img src="https://img.shields.io/badge/-English-A31F34?style=for-the-badge" alt="English" /></a>
-  <a title="繁體中文" href="README.zh-HK.md"><img src="https://img.shields.io/badge/-繁體中文-545759?style=for-the-badge" alt="繁體中文"></a>
+  <a title="English" href="README.md"><img src="https://img.shields.io/badge/English-A31F34?style=for-the-badge" alt="English" /></a>
+  <a title="繁體中文" href="README.zh-HK.md"><img src="https://img.shields.io/badge/繁體中文-545759?style=for-the-badge" alt="繁體中文"></a>
 </div>
 
-# 🏙️ HKopoly - Hong Kong Monopoly Online
+# 🏙️ HKopoly ✨ Hong Kong Monopoly Online
 
-**HKopoly** is a Hong Kong themed, browser based multiplayer board game inspired by [Richup.io](https://richup.io) (an online alternative to Monopoly). From Sham Shui Po to Fanling, the streets, MTR lines, and utilities are packed with familiar local references.
+**HKopoly** is a fast paced, feature rich multiplayer board game bringing the streets of Hong Kong to your browser! Inspired by [Richup.io](https://richup.io) (an online alternative to Monopoly), it packs familiar local vibes into every match from Sham Shui Po to Fanling.
+
+With deep mechanics to keep rounds exciting, the real highlight is our smart AI: these bots play strategically and can seamlessly step in for you if you need to take a break.
 
 **No Ads, No Paywalls, No VIP Tiers.**  
 Built entirely for seamless online game nights with friends.
@@ -50,54 +52,54 @@ Built entirely for seamless online game nights with friends.
 
 ## ✨ Features
 
-- **💚 100% Free:** 
+* **💚 100% Free:** 
   No ads, paywalls, or hidden fees. Built purely for the community.
 
-- **🎮 Instant Play:** 
-  No downloads or sign-ups required. Open the link and jump straight into a room.
+* **🎮 Instant Play:** 
+  No downloads or sign ups required. Open the link and jump straight into a room.
 
-- **📱 Mobile Friendly:** 
+* **📱 Mobile Friendly:** 
   Responsive layout on phones and tablets. Play from your browser on the go.
 
-- **🏘️ Hong Kong Boards:** 
+* **🏘️ Hong Kong Boards:** 
   Features two distinct maps: **Urban** and **New Territories & Islands**.
 
-- **📜 Complete Ruleset:** 
+* **📜 Complete Ruleset:** 
   Includes doubles, jail, Chance, Community Chest, mortgages, and auctions.
 
-- **⚡ Realtime Multiplayer:** 
+* **⚡ Realtime Multiplayer:** 
   Supports 2 to 10 players with synchronised live boards, chat, and game logs.
 
-- **🤝 Flexible Trading:** 
+* **🤝 Flexible Trading:** 
   Open trading for properties, cash, and Get Out of Jail cards. Declining a property purchase automatically triggers a timed auction.
 
-- **💡 Trade Hints:** 
+* **💡 Trade Hints:** 
   Property valuation hints help you negotiate. On by default when trading with bots or Piloted players. The host can turn them off in the lobby for a tougher challenge.
 
-- **🤖 Smart Bots:** 
-  Fill empty seats with computer players that bid strategically in auctions, negotiate trades, and handle debt by selling assets or proposing fire-sale deals.
+* **🤖 Smart Bots:** 
+  Fill empty seats with computer players that bid strategically in auctions, negotiate trades, and handle debt by selling assets or proposing fire sale deals.
 
-- **🤖 Auto Pilot:** 
+* **🤖 Auto Pilot:** 
   The computer plays on your behalf. It turns on automatically when you go offline or step away, and you can toggle it on or off anytime so long sessions never stall.
 
-- **👀 Spectate & Rejoin:** 
+* **👀 Spectate & Rejoin:** 
   Friends can watch live, and disconnected players can jump back into their seats instantly.
 
-- **⚙️ Custom Game Rules:** 
-  Hosts tailor each match in the lobby: map, player cap, starting cash, room access, spectator access, player shuffle, and Pilot idle timeout.
+* **⚙️ Custom Game Rules:** 
+  Hosts tailor each match in the lobby: map, player cap, starting cash, room access, spectator access, player shuffle, and Pilot mode idle time.
 
-- **🔊 Game Sounds:** 
+* **🔊 Game Sounds:** 
   Dice, trades, auctions, and more, with a volume control that saves in your browser.
 
-- **🌐 Bilingual:** 
+* **🌐 Bilingual:** 
   Full English and Traditional Chinese (Hong Kong) interfaces at hkopoly.com and zh.hkopoly.com.
 
 <br>
 
-## 🧩 Quick start
+## 🧩 Quick Start
 
 > [!TIP]
-> To save server resources, if all human players leave a room, it closes after 5 minutes unless someone reconnects. The English and Chinese sites run on separate servers and players are not shared.
+> Game rooms are not shared between the English and Chinese version of the game as they run on separate servers.
 
 Play instantly in three simple steps:
 
@@ -112,7 +114,7 @@ Play instantly in three simple steps:
 
 <br>
 
-## 🗺️ Board maps
+## 🗺️ Board Maps
 
 Map definitions live under [`maps/`](maps/) by locale (`en/`, `zh-HK/`). See the [Map Editing Guide](maps/EDIT_MAP_GUIDE.md) and [Card Editing Guide](cards/EDIT_CARD_GUIDE.md).
 
@@ -127,37 +129,19 @@ Map definitions live under [`maps/`](maps/) by locale (`en/`, `zh-HK/`). See the
 
 <br>
 
-## 🚀 Roadmap
-
-Planned directions:
-
-- **🗺️ Map Expansion:** 
-  Adding more localized themes. Community contributions are welcome via Pull Request.
-
-- **⚙️ Custom Rules:** 
-  Host options for maximum jail turns and rent multipliers (map, player cap, starting cash, spectators, and more are already configurable in the lobby).
-
-- **🎨 Animation Overhauls:** 
-  Smoother visual indicators for dice rolls, purchasing assets, and trade proposals.
-
-- **📈 Lightweight Stats:** 
-  Account-free tracking for fun local metrics like win rates, bankruptcy counts, and favorite color groups.
-
-<br>
-
 ## ⚠️ Disclaimer
 
-- This project is developed solely for entertainment, educational, and personal technical demonstration purposes.
-- It is entirely independent and not affiliated with Hasbro, MTR Corporation, or any official trademark holders.
-- "Monopoly" is a registered trademark of its respective owners; this application functions strictly as a non-commercial homage.
-- All regional and brand references are used for thematic flavor. For copyright or trademark concerns, please open a GitHub Issue for prompt resolution.
+* This project is developed solely for entertainment, educational, and personal technical demonstration purposes.
+* It is entirely independent and not affiliated with Hasbro, MTR Corporation, or any official trademark holders.
+* "Monopoly" is a registered trademark of its respective owners; this application functions strictly as a non commercial homage.
+* All regional and brand references are used for thematic flavor. For copyright or trademark concerns, please open a GitHub Issue for prompt resolution.
 
 <br>
 
 ## 💡 About
 
-While plenty of web-based Monopoly clones exist, a clean, zero-install option using authentic Hong Kong locations is hard to find. HKopoly closes that gap, providing a completely free, frictionless space to spin up a local board game night anytime, in English or Traditional Chinese.
+While plenty of web based Monopoly clones exist, a clean, zero install option using authentic Hong Kong locations is hard to find. HKopoly closes that gap, providing a completely free, frictionless space to spin up a local board game night anytime, in English or Traditional Chinese.
 
-**If you enjoy this non-commercial passion project, leaving a ⭐ helps keep it maintained.**
+**If you enjoy this non commercial passion project, leaving a ⭐ helps keep it maintained.**
 
 For bugs and feature requests, please open an [Issue](https://github.com/denniemok/hkopoly-public/issues).
