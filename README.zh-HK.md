@@ -97,9 +97,6 @@
 
 ## 🧩 快速開始
 
-> [!TIP]
-> 英文版同中文版係兩個唔同嘅伺服器，兩者之間唔互通。
-
 無需安裝，三步開局：
 
 1. **加入或建立遊戲**  
@@ -116,9 +113,9 @@
 
 <br>
 
-## 🗺️ 棋盤地圖
+## 🗺️ 地圖
 
-地圖定義檔按語言存放於 [`maps/`](maps/)（`en/`、`zh-HK/`），詳情請見[地圖編輯指南](maps/EDIT_MAP_GUIDE.zh-HK.md)及[卡牌編輯指南](cards/EDIT_CARD_GUIDE.zh-HK.md)。
+地圖定義檔按語言存放於 [`maps`](maps)，詳情請見[地圖編輯指南](maps/EDIT_MAP_GUIDE.zh-HK.md)及[卡牌編輯指南](cards/EDIT_CARD_GUIDE.zh-HK.md)。
 
 **歡迎提交新地圖！** 如果你有其他本地化主題的棋盤構想，歡迎 fork 本 repo、在 `maps/en/` 與 `maps/zh-HK/` 新增 JSON 檔，並開啟 [Pull Request](https://github.com/denniemok/hkopoly-public/pulls) 分享你的設計。
 
