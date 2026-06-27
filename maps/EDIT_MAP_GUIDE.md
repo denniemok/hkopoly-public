@@ -2,7 +2,7 @@
 
 繁體中文：[EDIT_MAP_GUIDE.zh-HK.md](EDIT_MAP_GUIDE.zh-HK.md)
 
-Welcome! This guide explains the JSON structure for HKopoly board maps and how to create or edit them.
+Welcome! This guide explains the JSON structure for HKOPOLY board maps and how to create or edit them.
 
 ## Locales
 

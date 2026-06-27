@@ -2,7 +2,7 @@
 
 English: [EDIT_MAP_GUIDE.md](EDIT_MAP_GUIDE.md)
 
-歡迎為 HKopoly 設計新棋盤！本指南說明地圖 JSON 的資料結構，以及建立或修改地圖時需要注意的事項。
+歡迎為 HKOPOLY 設計新棋盤！本指南說明地圖 JSON 的資料結構，以及建立或修改地圖時需要注意的事項。
 
 ## 語言版本
 

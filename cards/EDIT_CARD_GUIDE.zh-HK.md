@@ -2,7 +2,7 @@
 
 English: [EDIT_CARD_GUIDE.md](EDIT_CARD_GUIDE.md)
 
-歡迎為 HKopoly 設計或修改機會卡與社區基金卡！本指南說明卡牌 JSON 的資料結構，以及編輯卡牌時需要注意的事項。
+歡迎為 HKOPOLY 設計或修改機會卡與社區基金卡！本指南說明卡牌 JSON 的資料結構，以及編輯卡牌時需要注意的事項。
 
 ## 語言版本
 

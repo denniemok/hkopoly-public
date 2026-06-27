@@ -2,7 +2,7 @@
 
 繁體中文：[EDIT_CARD_GUIDE.zh-HK.md](EDIT_CARD_GUIDE.zh-HK.md)
 
-Welcome! This guide explains the JSON structure for HKopoly Chance and Community Chest cards.
+Welcome! This guide explains the JSON structure for HKOPOLY Chance and Community Chest cards.
 
 ## Locales
 
